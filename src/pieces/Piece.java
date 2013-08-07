@@ -30,9 +30,9 @@ public abstract class Piece {
 		}
 	}
 	
-	private Color color;
-	private Type type;
-	private Position position;
+	public Color color;
+	public Type type;
+	protected Position position;
 	
 	Piece(Color color, Type type, Position position) {
 		this.color = color;
