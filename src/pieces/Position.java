@@ -54,10 +54,18 @@ public class Position {
 	List<Position> findsPosition(Direction direction) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);
+		
 		while(currentPosition.isValid()) {
 			positions.add(currentPosition);
 			currentPosition = currentPosition.move(direction);
 		}
+		return positions;
+	}
+	
+	List<Position> findKingPosition(Direction direction){
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		positions.add(currentPosition);
 		return positions;
 	}
 	

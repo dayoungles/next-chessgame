@@ -30,10 +30,13 @@ public enum Direction {
 	}
 	//
 	public static Direction[] linearDirection() {
-		return new Direction[] { NORTH, EAST, SOUTH, WEST };//요줄의 의미.
+		return new Direction[] { NORTH, EAST, SOUTH, WEST };
 	}
 
 	public static Direction[] diagonalDirection() {
 		return new Direction[] { NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
+	}
+	public static Direction[] forRoyalDirection(){
+		return new Direction[] { NORTH, EAST, SOUTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
 	}
 }
