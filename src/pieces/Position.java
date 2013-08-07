@@ -10,18 +10,29 @@ public class Position {
 
 	private int x;
 	private int y;
-
+/**
+ * position의 생성자 중 스트링으로 인자를 받아서 x좌표와 y좌표로 쪼개서, 저장.
+ * @param position
+ */
 	public Position(String position) {
 		// 에러 상태에 대한 처리 필요함.
 		this.x = generateColumnIndex(position.charAt(0));
 		this.y = Integer.parseInt(position.substring(1)) - 1;
 	}
-
+/**
+ * x, y좌표를 각각 인자로 받게 되면 곧장  x, y좌표  설정 
+ * @param x
+ * @param y
+ */
 	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-
+/**
+ *  x축은 캐릭터, 즉 알파벳이다. 이걸 숫자로 변환하는 메소드.
+ * @param columnIndex는
+ * @return
+ */
 	private int generateColumnIndex(char columnIndex) {
 		int target = Character.getNumericValue(columnIndex);
 		int source = Character.getNumericValue(COLUMN_START_CHAR);

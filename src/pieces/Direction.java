@@ -1,5 +1,8 @@
 package pieces;
-
+/**
+ * 이동방향 관련 enum class
+ * @author dayoungle
+ */
 public enum Direction {
 	NORTH(0, 1),
 	NORTHEAST(1, 1),
@@ -25,9 +28,9 @@ public enum Direction {
 	public int getYDegree() {
 		return yDegree;
 	}
-	
+	//
 	public static Direction[] linearDirection() {
-		return new Direction[] { NORTH, EAST, SOUTH, WEST };
+		return new Direction[] { NORTH, EAST, SOUTH, WEST };//요줄의 의미.
 	}
 
 	public static Direction[] diagonalDirection() {

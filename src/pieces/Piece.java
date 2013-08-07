@@ -66,7 +66,10 @@ public abstract class Piece {
 	boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
-
+/**
+ * 빈칸으로 만들어버리는 팩토리 메소드...한참 헤맸네;;
+ * @return
+ */
 	public Piece leave() {
 		return new Empty(Color.NOCOLOR, this.position);
 	}
@@ -75,7 +78,10 @@ public abstract class Piece {
 		this.position = target;
 		return this;
 	}
-	
+	/**
+	 * 과제로 구현해야할 추상 메소드. 
+	 * @return
+	 */
 	abstract List<Position> getPossibleMoves();
 	
 	@Override

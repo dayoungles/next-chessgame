@@ -18,7 +18,10 @@ public class Rank {
 	private List<Piece> rank = new ArrayList<Piece>();
 	
 	private int rankPosition;
-	
+	/**
+	 * Rank는 내가 사용하던 standardRow와 같은 역
+	 * @param yPosition =row Number
+	 */
 	Rank(int yPosition) {
 		this.rankPosition = yPosition;
 	}
@@ -63,7 +66,10 @@ public class Rank {
 		rank.add(new Knight(Color.BLACK, new Position(6, rankPosition)) );
 		rank.add(new Rook(Color.BLACK, new Position(7, rankPosition)) );
 	}
-
+/**
+ * 심볼 한 줄로 이어붙이는 메소드.
+ * @return row하나의 심볼 세트 
+ */
 	String generate() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < Board.COLUMN_SIZE; i++) {
@@ -71,15 +77,21 @@ public class Rank {
 		}
 		return sb.toString();
 	}
-
+/**
+ * 이건 overriding인가 overloading인가???
+ * @param position
+ * @return x좌표 리턴하는 듯?
+ */
 	Piece findPiece(Position position) {
 		return rank.get(position.getX());
 	}
 
-	void changePiece(int xPosition, Piece targetPiece) {
-		rank.set(xPosition, targetPiece);
-	}
-
+/**
+ * 
+ * @param sourcePiece
+ * @param target
+ * @return
+ */
 	Piece move(Piece sourcePiece, Position target) {
 		sourcePiece.move(target);
 		rank.set(target.getX(), sourcePiece);

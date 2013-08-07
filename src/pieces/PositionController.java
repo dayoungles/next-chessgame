@@ -12,7 +12,7 @@ public class PositionController {
 
 	public List<Position> findsLinearPositionAll() {
 		Direction[] linears = Direction.linearDirection();
-		List<Position> positions = new ArrayList<Position>();
+		List<Position> positions = new ArrayList<Position>();//arrayList와 그냥 list의 관계는 overriding이라고 함. 
 		for (Direction direction : linears) {
 			positions.addAll(position.findsPosition(direction));
 		}
