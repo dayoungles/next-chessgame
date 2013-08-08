@@ -1,4 +1,7 @@
 package pieces;
+
+import pieces.Piece.Color;
+
 /**
  * 이동방향 관련 enum class
  * @author dayoungle
@@ -31,12 +34,16 @@ public enum Direction {
 	//
 	public static Direction[] linearDirection() {
 		return new Direction[] { NORTH, EAST, SOUTH, WEST };
-	}
+	} 
 
 	public static Direction[] diagonalDirection() {
 		return new Direction[] { NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
 	}
 	public static Direction[] forRoyalDirection(){
 		return new Direction[] { NORTH, EAST, SOUTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
+	}
+
+	public static Direction[] forPawnDirection() {
+		return new Direction[] {NORTH, SOUTH};
 	}
 }

@@ -1,6 +1,7 @@
 package pieces;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import chess.Board;
@@ -68,6 +69,21 @@ public class Position {
 		positions.add(currentPosition);
 		return positions;
 	}
+	List<Position> findPawnPosition(Direction  direction){
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition; //=move(direction); 
+//		if (currentPosition.getY() == 1 || currentPosition.getY() == 6){
+//			for(int i = 0; i<2; i++){
+//				currentPosition = move(direction);
+//				positions.add(currentPosition);
+//			}
+//		} else {
+			currentPosition = move(direction);
+			positions.add(currentPosition);
+//		}
+
+		return positions;
+	}
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {
@@ -110,6 +126,7 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
+
 
 
 

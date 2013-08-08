@@ -26,4 +26,48 @@ public class PieceTest extends TestCase {
 		Piece whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Empty(Color.NOCOLOR, source), whitePawn.leave());
 	}
+	
+	public void testEmptyGetPossibleMove() throws Exception {
+		Empty test = new Empty(Piece.Color.NOCOLOR, new Position("a3") );
+		assertEquals(0, test.getPossibleMoves().size());
+	}
+	
+	public void testRookGetPossibleMove() throws Exception {
+		Rook rook = new Rook(Piece.Color.BLACK, new Position(0,0));
+		assertEquals(14, rook.getPossibleMoves().size());
+		System.out.println(rook.getPossibleMoves());
+		
+		Rook rook2 = new Rook(Piece.Color.BLACK, new Position("b2"));
+		assertEquals(14, rook2.getPossibleMoves().size());
+	}
+	public void testBishopGetPossibleMove() throws Exception {
+		Bishop bishop = new Bishop(Piece.Color.WHITE, new Position("c8"));
+		assertEquals(7, bishop.getPossibleMoves().size());
+		
+		Bishop bishop2 = new Bishop(Piece.Color.WHITE, new Position("d5"));
+		assertEquals(13, bishop2.getPossibleMoves().size());
+		
+	}
+	public void testQueenGetPossibleMove() throws Exception {
+		Queen queen = new Queen(Piece.Color.BLACK, new Position("e1"));
+		assertEquals(21, queen.getPossibleMoves().size());
+		
+		Queen queen2 = new Queen(Piece.Color.BLACK, new Position("d5"));
+		assertEquals(27, queen2.getPossibleMoves().size());
+	}
+	public void testKingGetPossibleMove() throws Exception {
+		King king = new King(Piece.Color.BLACK, new Position("d5"));
+		assertEquals(8, king.getPossibleMoves().size());
+		System.out.println(king.getPossibleMoves());
+	}
+	public void testPawnGetPossibleMove() throws Exception {
+		Pawn pawn = new Pawn(Piece.Color.BLACK, new Position("e7"));
+		assertEquals(1, pawn.getPossibleMoves().size());
+		System.out.println(pawn.getPossibleMoves());
+		
+		Pawn pawn1 = new Pawn(Piece.Color.WHITE, new Position("a2"));
+		assertEquals(1, pawn1.getPossibleMoves().size());
+		System.out.println(pawn1.getPossibleMoves());
+	}
+
 }
