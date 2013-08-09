@@ -62,12 +62,21 @@ public class PieceTest extends TestCase {
 	}
 	public void testPawnGetPossibleMove() throws Exception {
 		Pawn pawn = new Pawn(Piece.Color.BLACK, new Position("e7"));
-		assertEquals(1, pawn.getPossibleMoves().size());
 		System.out.println(pawn.getPossibleMoves());
+		assertEquals(2, pawn.getPossibleMoves().size());
+		
+		Pawn pawn2 = new Pawn(Piece.Color.BLACK, new Position("c5"));
+		System.out.println(pawn2.getPossibleMoves());
+		assertEquals(1, pawn2.getPossibleMoves().size());
 		
 		Pawn pawn1 = new Pawn(Piece.Color.WHITE, new Position("a2"));
-		assertEquals(1, pawn1.getPossibleMoves().size());
 		System.out.println(pawn1.getPossibleMoves());
+		assertEquals(2, pawn1.getPossibleMoves().size());
+		
+		
+		Pawn pawn3 = new Pawn(Piece.Color.WHITE, new Position("c5"));
+		assertEquals(1, pawn3.getPossibleMoves().size());
+		System.out.println(pawn3.getPossibleMoves());
 	}
 
 }
