@@ -78,5 +78,11 @@ public class PieceTest extends TestCase {
 		assertEquals(1, pawn3.getPossibleMoves().size());
 		System.out.println(pawn3.getPossibleMoves());
 	}
+	
+	public void testKnightGetPossibleMove() throws Exception {
+		Knight knight = new Knight(Piece.Color.BLACK, new Position("d6"));
+		System.out.println(knight.getPossibleMoves());
+		assertEquals(8, knight.getPossibleMoves().size());
+	}
 
 }

@@ -86,6 +86,13 @@ public class Position {
 		return positions;
 
 	}
+	List<Position> findKnightPosition(Direction direction) {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		positions.add(currentPosition);
+		currentPosition = currentPosition.move(direction);
+		return positions;
+	}
 
 	boolean isValid() {
 		if (y < 0 || y >= Board.ROW_SIZE) {
@@ -128,5 +135,7 @@ public class Position {
 	public String toString() {
 		return "Position [x=" + x + ", y=" + y + "]";
 	}
+
+
 
 }

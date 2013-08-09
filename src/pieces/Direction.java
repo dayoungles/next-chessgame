@@ -14,7 +14,18 @@ public enum Direction {
 	SOUTH(0, -1),
 	SOUTHWEST(-1, -1),
 	WEST(-1, 0),
-	NORTHWEST(-1, 1);
+	NORTHWEST(-1, 1),
+	
+	K_NNW (-1, 2),
+	K_NNE (1, 2),
+	K_EEN (2, 1),
+	K_EES (2, -1),
+	K_SSE (1, -2),
+	K_SSW (-1,-2),
+	K_WWS (-2, -1),
+	K_WWN (-2, 1);
+	
+	
 
 	private int xDegree;
 	private int yDegree;
@@ -45,5 +56,8 @@ public enum Direction {
 
 	public static Direction[] forPawnDirection() {
 		return new Direction[] {NORTH, SOUTH};
+	}
+	public static Direction[] forKnightDirection(){
+		return new Direction[] {K_EEN, K_EES, K_NNE, K_NNW, K_SSE, K_SSW, K_WWN, K_WWS};
 	}
 }

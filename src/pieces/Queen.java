@@ -13,6 +13,7 @@ public class Queen extends Piece {
 	List<Position> getPossibleMoves() {
 		List<Position> queenList = new ArrayList<Position>();
 		Direction[] queenDirection = Direction.forRoyalDirection();
+		
 		for (Direction direction : queenDirection) {
 			queenList.addAll(super.position.findsPosition(direction));
 		}
