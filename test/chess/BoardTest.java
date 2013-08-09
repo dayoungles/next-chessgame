@@ -6,6 +6,7 @@ import pieces.Pawn;
 import pieces.Piece;
 import pieces.Piece.Color;
 import pieces.Position;
+import pieces.King;
 
 public class BoardTest extends TestCase {
 	private Board board;
@@ -61,6 +62,17 @@ public class BoardTest extends TestCase {
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
+		System.out.println(board.generateBoard());
+		
+		board.initialize();
+		Position source1 = new Position("a3");
+		Piece sourcePiece1 = board.findPiece(source1);
+		assertEquals(new Empty(Color.NOCOLOR, source1), sourcePiece1);
+		
+		Position target1 = new Position("e7");
+		board.movePiece(source1, target1);
+		assertEquals(new Empty(Color.NOCOLOR, source1), board.findPiece(source1));
+		assertEquals(new Pawn(Color.BLACK, target1), board.findPiece(target1));
 		System.out.println(board.generateBoard());
 	}
 }

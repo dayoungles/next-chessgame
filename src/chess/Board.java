@@ -49,7 +49,7 @@ public class Board {
 
 	Piece findPiece(Position position) {
 		Rank rank = ranks.get(position.getY());
-		return rank.findPiece(position);//getX()하는 rank의 메소드.
+		return rank.findPiece(position);//포지션 리턴 
 	}
 /**
  * movePiece라는 메소드에 인자(원래 위치, 옮기려고 하는 말의 위치가 스트링으로 들어올 경우, 
@@ -68,13 +68,17 @@ public class Board {
  */
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);//이건 board의 findPiece(overriding?)
-		Piece sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
-		
-		Rank sourceRank = ranks.get(source.getY());//row 한 줄 저
-		sourceRank.move(sourcePiece, source);//옮길 피스 정체, 현 위치.
-		
-		Rank targetRank = ranks.get(target.getY());
-		targetRank.move(targetPiece, target);
+		if(targetPiece.getSymbol() == '.'){
+			return;
+		}else {
+			Piece sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
+			
+			Rank sourceRank = ranks.get(source.getY());//row 한 줄 저장 
+			sourceRank.move(sourcePiece, source);//옮길 피스 정체, 현 위치.
+			
+			Rank targetRank = ranks.get(target.getY());
+			targetRank.move(targetPiece, target);
+		}
 	}
 	/**
 	 * 랭크의 인덱스를 받아서 그 줄의 심볼을 리턴..
