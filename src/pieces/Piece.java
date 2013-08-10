@@ -76,7 +76,10 @@ public abstract class Piece {
 	
 	public Piece move(Position target) {
 		this.position = target;
-		return this;
+		if(this.position.isValid()){
+			return this;
+		}
+		return null;
 	}
 	/**
 	 * 과제로 구현해야할 추상 메소드. 

@@ -16,7 +16,7 @@ public class PieceTest extends TestCase {
 	
 	public void testMove() throws Exception {
 		Position source = new Position("a1");
-		Position target = new Position("a2");
+		Position target = new Position("a8");
 		Piece whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Pawn(Color.WHITE, target), whitePawn.move(target));
 	}
@@ -83,6 +83,12 @@ public class PieceTest extends TestCase {
 		Knight knight = new Knight(Piece.Color.BLACK, new Position("d6"));
 		System.out.println(knight.getPossibleMoves());
 		assertEquals(8, knight.getPossibleMoves().size());
+	}
+	public void testIsValid() throws Exception {
+		Position source = new Position("a1");
+		Position target = new Position("a9");
+		Piece whitePawn = new Pawn(Color.WHITE, source);
+		assertEquals(new Pawn(Color.WHITE, target), whitePawn.move(target));//에러 나는 것 확인;
 	}
 
 }
