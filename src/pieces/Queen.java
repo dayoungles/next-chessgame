@@ -10,7 +10,7 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> queenList = new ArrayList<Position>();
 		Direction[] queenDirection = Direction.forRoyalDirection();
 		

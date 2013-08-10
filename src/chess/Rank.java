@@ -78,7 +78,6 @@ public class Rank {
 		return sb.toString();
 	}
 /**
- * 이건 overriding인가 overloading인가???
  * @param position
  * @return x좌표 리턴하는 듯?
  */

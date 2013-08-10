@@ -9,7 +9,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> pawnList = new ArrayList<Position>();
 		// Direction[] pawnDirection = Direction.forPawnDirection();
 		if (isBlack()) {

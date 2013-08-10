@@ -9,7 +9,7 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		Direction[] linears = Direction.linearDirection();
 		List<Position> positions = new ArrayList<Position>();
 		for (Direction direction : linears) {

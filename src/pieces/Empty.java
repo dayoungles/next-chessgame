@@ -9,7 +9,7 @@ public class Empty extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> list = new ArrayList<Position>();//리스트를 생성한 후 리턴하면 이동가능한 거리가 없음.
 		return list;
 	}

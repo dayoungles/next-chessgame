@@ -9,7 +9,7 @@ public class King extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> kingList = new ArrayList<Position>();
 		Direction[] kingDirection = Direction.forRoyalDirection();
 		for (Direction direction : kingDirection){

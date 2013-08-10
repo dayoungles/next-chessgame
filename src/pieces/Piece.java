@@ -85,7 +85,7 @@ public abstract class Piece {
 	 * 과제로 구현해야할 추상 메소드. 
 	 * @return
 	 */
-	abstract List<Position> getPossibleMoves();
+	public abstract List<Position> getPossibleMoves();
 	
 	@Override
 	public int hashCode() {

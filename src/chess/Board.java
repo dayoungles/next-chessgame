@@ -3,6 +3,7 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
+import pieces.Pawn;
 import pieces.Piece;
 import pieces.Position;
 
@@ -49,7 +50,7 @@ public class Board {
 
 	Piece findPiece(Position position) {
 		Rank rank = ranks.get(position.getY());
-		return rank.findPiece(position);//포지션 리턴 
+		return rank.findPiece(position);//좌표  리턴 
 	}
 /**
  * movePiece라는 메소드에 인자(원래 위치, 옮기려고 하는 말의 위치가 스트링으로 들어올 경우, 
@@ -63,18 +64,21 @@ public class Board {
 	}
 /**
  * 옮길 피스를 타겟 피스에 저장해두고, 타겟 값을 이용해서 타겟랭크로 옮긴다?
- * @param source  현재 위치 포지
+ * @param source  현재 위치 포지션 
  * @param target 이동하려는 목표 위
  */
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source); //이건 board의 findPiece(overriding?)
+		Piece targetPiece = findPiece(source); 
 		Piece sameColorPiece = findPiece(target);
 
 		if(targetPiece.getSymbol() == '.'){
 			return;
 		}else if (targetPiece.matchColor(sameColorPiece.color)){
 			return;
-		} else {
+		} else if(!findPiece(source).getPossibleMoves().contains(target)){
+			return;
+		}
+		else {
 			Piece sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
 			
 			Rank sourceRank = ranks.get(source.getY());//row 한 줄 저장 
@@ -82,6 +86,7 @@ public class Board {
 			
 			Rank targetRank = ranks.get(target.getY());
 			targetRank.move(targetPiece, target);
+			
 		}
 	}
 	/**
