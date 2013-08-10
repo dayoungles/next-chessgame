@@ -63,14 +63,18 @@ public class Board {
 	}
 /**
  * 옮길 피스를 타겟 피스에 저장해두고, 타겟 값을 이용해서 타겟랭크로 옮긴다?
- * @param source >> 얘는 x 값이 저장된다고? 
- * @param target>> 이 위치는 빈칸으로 만들어버린다. 
+ * @param source  현재 위치 포지
+ * @param target 이동하려는 목표 위
  */
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source);//이건 board의 findPiece(overriding?)
+		Piece targetPiece = findPiece(source); //이건 board의 findPiece(overriding?)
+		Piece sameColorPiece = findPiece(target);
+
 		if(targetPiece.getSymbol() == '.'){
 			return;
-		}else {
+		}else if (targetPiece.matchColor(sameColorPiece.color)){
+			return;
+		} else {
 			Piece sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
 			
 			Rank sourceRank = ranks.get(source.getY());//row 한 줄 저장 

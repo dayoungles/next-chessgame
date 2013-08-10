@@ -30,7 +30,7 @@ public abstract class Piece {
 		}
 	}
 	
-	protected Color color;
+	public Color color;
 	protected Type type;
 	protected Position position;
 	
@@ -63,7 +63,7 @@ public abstract class Piece {
         return false;
     }
     
-	boolean matchColor(Color color) {
+	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 /**

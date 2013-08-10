@@ -75,4 +75,17 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.BLACK, target1), board.findPiece(target1));
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testIfSameColorPiece() throws Exception {
+		board.initialize();
+		Position source = new Position ("e1");
+		Piece sourcePiece = board.findPiece(source);
+		assertEquals(new King(Color.WHITE, source), sourcePiece);
+		
+		Position target = new Position("d2");
+		board.movePiece(source, target);
+		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
+		
+	}
+	
 }
