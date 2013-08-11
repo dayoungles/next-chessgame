@@ -1,6 +1,5 @@
 package pieces;
 
-import pieces.Piece.Color;
 
 /**
  * 이동방향 관련 enum class

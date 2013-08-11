@@ -3,10 +3,11 @@ package chess;
 import junit.framework.TestCase;
 import pieces.Empty;
 import pieces.Pawn;
-import pieces.Piece;
-import pieces.Piece.Color;
+import pieces.PieceOperations;
+import pieces.PieceOperations.Color;
 import pieces.Position;
 import pieces.King;
+
 
 public class BoardTest extends TestCase {
 	private Board board;
@@ -55,10 +56,10 @@ public class BoardTest extends TestCase {
 	public void testMovePiece() throws Exception {
 		board.initialize();
 		Position source = new Position("a2");
-		Piece sourcePiece = board.findPiece(source);
+		PieceOperations sourcePiece = board.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
-		Position target = new Position("e8");
+		Position target = new Position("a4");
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
@@ -66,7 +67,7 @@ public class BoardTest extends TestCase {
 		
 		board.initialize();
 		Position source1 = new Position("a3");
-		Piece sourcePiece1 = board.findPiece(source1);
+		PieceOperations sourcePiece1 = board.findPiece(source1);
 		assertEquals(new Empty(Color.NOCOLOR, source1), sourcePiece1);
 		
 		Position target1 = new Position("e7");
@@ -79,7 +80,7 @@ public class BoardTest extends TestCase {
 	public void testIfSameColorPiece() throws Exception {
 		board.initialize();
 		Position source = new Position ("e1");
-		Piece sourcePiece = board.findPiece(source);
+		PieceOperations sourcePiece = board.findPiece(source);
 		assertEquals(new King(Color.WHITE, source), sourcePiece);
 		
 		Position target = new Position("d2");

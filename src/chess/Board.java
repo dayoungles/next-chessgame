@@ -3,8 +3,7 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
-import pieces.Pawn;
-import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Position;
 
 public class Board {
@@ -43,12 +42,12 @@ public class Board {
 		}
 	}
 
-	Piece findPiece(String xy) {
+	PieceOperations findPiece(String xy) {
 		Position position = new Position(xy);
 		return findPiece(position);
 	}
 
-	Piece findPiece(Position position) {
+	PieceOperations findPiece(Position position) {
 		Rank rank = ranks.get(position.getY());
 		return rank.findPiece(position);//좌표  리턴 
 	}
@@ -68,18 +67,18 @@ public class Board {
  * @param target 이동하려는 목표 위
  */
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source); 
-		Piece sameColorPiece = findPiece(target);
+		PieceOperations targetPiece = findPiece(source); 
+		PieceOperations sameColorPiece = findPiece(target);
 
 		if(targetPiece.getSymbol() == '.'){
 			return;
-		}else if (targetPiece.matchColor(sameColorPiece.color)){
+		}else if (targetPiece.matchColor(sameColorPiece.getColor())){
 			return;
 		} else if(!findPiece(source).getPossibleMoves().contains(target)){
 			return;
 		}
 		else {
-			Piece sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
+			PieceOperations sourcePiece = targetPiece.leave();//빈칸으로 만들어버린다.
 			
 			Rank sourceRank = ranks.get(source.getY());//row 한 줄 저장 
 			sourceRank.move(sourcePiece, source);//옮길 피스 정체, 현 위치.

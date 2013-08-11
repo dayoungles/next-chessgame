@@ -3,12 +3,8 @@ package pieces;
 import java.util.List;
 
 
-public abstract class Piece {
-	public enum Color {
-		WHITE,
-		BLACK,
-		NOCOLOR;
-	}
+public abstract class Piece implements PieceOperations {
+
 	
 	public enum Type {
 		PAWN('p'),
@@ -40,11 +36,17 @@ public abstract class Piece {
 		this.position = position;
 	}
 	
+	@Override
 	public char getSymbol() {
 		if (isBlack()) {
 			return Character.toUpperCase(type.getSymbol());
 		}
 		return type.getSymbol();
+	}
+	
+	@Override
+	public Color getColor(){
+		return color;
 	}
 	
     boolean isWhite() {
@@ -63,28 +65,24 @@ public abstract class Piece {
         return false;
     }
     
+	@Override
 	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
-/**
- * 빈칸으로 만들어버리는 팩토리 메소드...한참 헤맸네;;
- * @return
- */
-	public Piece leave() {
+	@Override
+	public PieceOperations leave() {
 		return new Empty(Color.NOCOLOR, this.position);
 	}
 	
-	public Piece move(Position target) {
+	@Override
+	public PieceOperations move(Position target) {
 		this.position = target;
 		if(this.position.isValid()){
 			return this;
 		}
 		return null;
 	}
-	/**
-	 * 과제로 구현해야할 추상 메소드. 
-	 * @return
-	 */
+	@Override
 	public abstract List<Position> getPossibleMoves();
 	
 	@Override

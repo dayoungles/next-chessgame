@@ -9,7 +9,8 @@ import pieces.King;
 import pieces.Knight;
 import pieces.Pawn;
 import pieces.Piece;
-import pieces.Piece.Color;
+import pieces.PieceOperations.Color;
+import pieces.PieceOperations;
 import pieces.Position;
 import pieces.Queen;
 import pieces.Rook;
@@ -28,7 +29,7 @@ public class Rank {
 
 	void initializeEmpty() {
 		for (int i = 0; i < Board.COLUMN_SIZE; i++) {
-			rank.add( new Empty(Color.NOCOLOR, new Position(i, rankPosition)) );
+			rank.add( new Empty(PieceOperations.Color.NOCOLOR, new Position(i, rankPosition)) );
 		}
 	}
 	
@@ -81,7 +82,7 @@ public class Rank {
  * @param position
  * @return x좌표 리턴하는 듯?
  */
-	Piece findPiece(Position position) {
+	PieceOperations findPiece(Position position) {
 		return rank.get(position.getX());
 	}
 
@@ -91,9 +92,9 @@ public class Rank {
  * @param target
  * @return
  */
-	Piece move(Piece sourcePiece, Position target) {
+	PieceOperations move(PieceOperations sourcePiece, Position target) {
 		sourcePiece.move(target);
-		rank.set(target.getX(), sourcePiece);
+		rank.set(target.getX(), (Piece) sourcePiece);
 		return sourcePiece;
 	}
 }
