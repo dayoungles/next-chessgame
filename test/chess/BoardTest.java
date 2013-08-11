@@ -17,11 +17,7 @@ public class BoardTest extends TestCase {
 		board = new Board();
 	}
 	
-	public void testCreate() throws Exception {
-		board.initialize();
-		assertEquals(RankTest.WHITE_PAWN_RANK, board.generateRank(1));
-		assertEquals(RankTest.BLACK_PAWN_RANK, board.generateRank(6));
-	}
+
 	
 	public void testPrint() throws Exception {
 		board.initialize();
